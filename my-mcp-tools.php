@@ -12,6 +12,8 @@
  * @package MyMCPTools
  */
 
+namespace MyMCPTools;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -51,7 +53,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		/**
 		 * Get singleton instance
 		 *
-		 * @return My
+		 * @return MyMCPTools
 		 */
 		public static function instance() {
 			if ( self::$instance === null ) {
@@ -74,7 +76,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		 * Include required files
 		 */
 		private function includes() {
-			include_once MY_PLUGIN_PATH . 'includes/class-mymcptools.php';
+			include_once MY_PLUGIN_PATH . 'includes/class-mcptools.php';
 		}
 
 		/**
@@ -122,7 +124,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		public function init() {
 			load_plugin_textdomain( 'my-mcp-tools', false, dirname( MY_PLUGIN_BASENAME ) . '/languages' );
 
-			// Your initialization code here.
+			new MCPTools();
 		}
 	}
 }
