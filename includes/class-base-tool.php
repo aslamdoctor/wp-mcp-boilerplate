@@ -27,51 +27,51 @@ abstract class BaseTool {
 	public function register_tools(): void {
 		WPMCP()->register_tool(
 			array(
-				'name'                => $this->get_name(),
-				'description'         => $this->get_description(),
-				'type'                => $this->get_type(),
-				'inputSchema'         => $this->get_input_schema(),
+				'name'                => $this->set_name(),
+				'description'         => $this->set_description(),
+				'type'                => $this->set_type(),
+				'inputSchema'         => $this->set_input_schema(),
 				'callback'            => array( $this, 'execute' ),
 				'permission_callback' => array( $this, 'permission' ),
-				'annotations'         => $this->get_annotations(),
+				'annotations'         => $this->set_annotations(),
 			)
 		);
 	}
 
 	/**
-	 * Get the name of the tool.
+	 * Set the name of the tool.
 	 *
 	 * @return string The name of the tool.
 	 */
-	abstract protected function get_name(): string;
+	abstract protected function set_name(): string;
 
 	/**
-	 * Get the description of the tool.
+	 * Set the description of the tool.
 	 *
 	 * @return string The description of the tool.
 	 */
-	abstract protected function get_description(): string;
+	abstract protected function set_description(): string;
 
 	/**
-	 * Get the type of the tool.
+	 * Set the type of the tool.
 	 *
 	 * @return string The type of the tool.
 	 */
-	abstract protected function get_type(): string;
+	abstract protected function set_type(): string;
 
 	/**
-	 * Get the input schema of the tool.
+	 * Set the input schema of the tool.
 	 *
 	 * @return array The input schema of the tool.
 	 */
-	abstract protected function get_input_schema(): array;
+	abstract protected function set_input_schema(): array;
 
 	/**
-	 * Get the annotations of the tool.
+	 * Set the annotations of the tool.
 	 *
 	 * @return array The annotations of the tool.
 	 */
-	abstract protected function get_annotations(): array;
+	abstract protected function set_annotations(): array;
 
 	/**
 	 * Execute the tool.
@@ -82,7 +82,7 @@ abstract class BaseTool {
 	abstract public function execute( array $args ): array;
 
 	/**
-	 * Get the permission of the tool.
+	 * Set the permission to access the tool.
 	 *
 	 * @return bool The permission of the tool.
 	 */
