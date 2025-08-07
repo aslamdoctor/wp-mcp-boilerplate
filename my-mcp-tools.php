@@ -76,7 +76,8 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		 * Include required files
 		 */
 		private function includes() {
-			include_once MY_PLUGIN_PATH . 'includes/class-mcptools.php';
+			// include all the tools.
+			include_once MY_PLUGIN_PATH . 'includes/class-get-version-info-tool.php';
 		}
 
 		/**
@@ -124,7 +125,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		public function init() {
 			load_plugin_textdomain( 'my-mcp-tools', false, dirname( MY_PLUGIN_BASENAME ) . '/languages' );
 
-			new MCPTools();
+			new GetVersionInfoTool();
 		}
 	}
 }
