@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace MyMCPTools;
 
 // include the base tool.
-include_once MY_PLUGIN_PATH . 'includes/class-base-tool.php';
+require_once MY_PLUGIN_PATH . 'includes/class-base-tool.php';
 
 // include the base tool.
 use MyMCPTools\BaseTool;

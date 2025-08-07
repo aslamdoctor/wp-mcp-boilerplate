@@ -56,7 +56,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		 * @return MyMCPTools
 		 */
 		public static function instance() {
-			if ( self::$instance === null ) {
+			if ( null === self::$instance ) {
 				self::$instance = new self();
 			}
 			return self::$instance;
@@ -89,9 +89,12 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 
 			// add admin notice if wordpress-mcp plugin is not active.
 			if ( ! $this->is_wordpress_mcp_active() ) {
-				add_action( 'admin_notices', function() {
-					echo '<div class="error"><p>Please activate the <a href="https://wordpress.org/plugins/wordpress-mcp/">WordPress MCP</a> plugin before activating this plugin.</p></div>';
-				} );
+				add_action(
+					'admin_notices',
+					function () {
+						echo '<div class="error"><p>Please activate the <a href="https://wordpress.org/plugins/wordpress-mcp/">WordPress MCP</a> plugin before activating this plugin.</p></div>';
+					}
+				);
 				deactivate_plugins( MY_PLUGIN_BASENAME );
 			}
 
