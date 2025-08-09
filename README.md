@@ -4,7 +4,7 @@ A WordPress plugin boilerplate for creating custom MCP (Model Context Protocol) 
 
 ## Prerequisites
 
-- WordPress site with the [WordPress MCP plugin](https://wordpress.org/plugins/wordpress-mcp/) installed and activated
+- WordPress site with the [WordPress MCP plugin](https://github.com/Automattic/wordpress-mcp/) installed and activated
 - PHP 7.4 or higher
 
 ## Installation
@@ -32,7 +32,7 @@ wp-mcp-boilerplate/
 
 ### Step 1: Create a New Tool Class
 
-Create a new PHP file in the `includes/` directory for your tool. Follow this naming convention: `class-your-tool-name-tool.php`
+Create a new PHP file in the `includes/` directory for your tool. Follow this naming convention: `class-YOUR_TOOL_NAME-tool.php`
 
 ### Step 2: Extend the BaseTool Class
 
@@ -74,10 +74,10 @@ class YourCustomTool extends BaseTool {
 
     /**
      * Set the type of the tool.
-     * Common types: 'read', 'write', 'modify'
+     * Common types: 'read', 'create', 'update'
      */
     protected function set_type(): string {
-        return 'read'; // or 'write', 'modify', etc.
+        return 'read'; // or 'create', 'update', etc.
     }
 
     /**
@@ -194,10 +194,10 @@ public function execute(array $args): array {
 }
 ```
 
-### Data Modification Tool (Write)
+### Data Modification Tool (Create)
 ```php
 protected function set_type(): string {
-    return 'write';
+    return 'create';
 }
 
 public function execute(array $args): array {
@@ -211,10 +211,10 @@ public function execute(array $args): array {
 }
 ```
 
-### Administrative Tool (Modify)
+### Administrative Tool (Update)
 ```php
 protected function set_type(): string {
-    return 'modify';
+    return 'update';
 }
 
 public function permission(): bool {
@@ -375,6 +375,6 @@ GPL v2 or later
 
 ## Support
 
-For issues related to the WordPress MCP plugin functionality, refer to the [WordPress MCP plugin documentation](https://wordpress.org/plugins/wordpress-mcp/).
+For issues related to the WordPress MCP plugin functionality, refer to the [WordPress MCP plugin documentation](https://github.com/Automattic/wordpress-mcp/).
 
 For issues specific to this boilerplate, please check the plugin's repository or contact the plugin author.
