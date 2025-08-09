@@ -1,36 +1,36 @@
 <?php
 /**
- * Plugin Name: My MCP Tools
+ * Plugin Name: WP MCP Boilerplate
  * Plugin URI:  https://aslamdoctor.com
- * Description: A plugin to add custom MCP tools.
+ * Description: A boilerplate plugin to add custom MCP tools.
  * Version:     1.0.0
  * Author:      Aslam Doctor
  * Author URI:  https://aslamdoctor.com
  * License:     GPL v2 or later
- * Text Domain: my-mcp-tools
+ * Text Domain: wp-mcp-boilerplate
  *
- * @package MyMCPTools
+ * @package WPMCPBoilerplate
  */
 
-namespace MyMCPTools;
+namespace WPMCPBoilerplate;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'MyMCPTools' ) ) {
+if ( ! class_exists( 'WPMCPBoilerplate' ) ) {
 
 	/**
 	 * Main plugin class
 	 *
 	 * @since 1.0.0
 	 */
-	class MyMCPTools {
+	class WPMCPBoilerplate {
 
 		/**
 		 * Singleton instance
 		 *
-		 * @var MyMCPTools
+		 * @var WPMCPBoilerplate
 		 */
 		private static $instance = null;
 
@@ -53,7 +53,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		/**
 		 * Get singleton instance
 		 *
-		 * @return MyMCPTools
+		 * @return WPMCPBoilerplate
 		 */
 		public static function instance() {
 			if ( null === self::$instance ) {
@@ -66,10 +66,10 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		 * Define constants
 		 */
 		private function define_constants() {
-			define( 'MY_PLUGIN_VERSION', $this->version );
-			define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-			define( 'MY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-			define( 'MY_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+			define( 'WP_MCP_BOILERPLATE_VERSION', $this->version );
+			define( 'WP_MCP_BOILERPLATE_PATH', plugin_dir_path( __FILE__ ) );
+			define( 'WP_MCP_BOILERPLATE_URL', plugin_dir_url( __FILE__ ) );
+			define( 'WP_MCP_BOILERPLATE_BASENAME', plugin_basename( __FILE__ ) );
 		}
 
 		/**
@@ -77,7 +77,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		 */
 		private function includes() {
 			// include all the tools.
-			include_once MY_PLUGIN_PATH . 'includes/class-get-version-info-tool.php';
+			include_once WP_MCP_BOILERPLATE_PATH . 'includes/class-get-version-info-tool.php';
 		}
 
 		/**
@@ -95,7 +95,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 						echo '<div class="error"><p>Please activate the <a href="https://wordpress.org/plugins/wordpress-mcp/">WordPress MCP</a> plugin before activating this plugin.</p></div>';
 					}
 				);
-				deactivate_plugins( MY_PLUGIN_BASENAME );
+				deactivate_plugins( WP_MCP_BOILERPLATE_BASENAME );
 			}
 
 			add_action( 'init', array( $this, 'init' ) );
@@ -126,7 +126,7 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 		 * Init hook callback
 		 */
 		public function init() {
-			load_plugin_textdomain( 'my-mcp-tools', false, dirname( MY_PLUGIN_BASENAME ) . '/languages' );
+			load_plugin_textdomain( 'wp-mcp-boilerplate', false, dirname( WP_MCP_BOILERPLATE_BASENAME ) . '/languages' );
 
 			new GetVersionInfoTool();
 		}
@@ -136,9 +136,9 @@ if ( ! class_exists( 'MyMCPTools' ) ) {
 /**
  * Initialize plugin
  */
-function my_mcp_tools_init() {
-	return MyMCPTools::instance();
+function wp_mcp_boilerplate_init() {
+	return WPMCPBoilerplate::instance();
 }
 
 // Start plugin.
-my_mcp_tools_init();
+wp_mcp_boilerplate_init();

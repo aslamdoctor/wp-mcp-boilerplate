@@ -5,12 +5,12 @@
 
 declare(strict_types=1);
 
-namespace MyMCPTools;
+namespace WPMCPBoilerplate;
 
 /**
  * Base class for MCP tools.
  */
-abstract class BaseTool {
+abstract class BaseTool { // phpcs:ignore
 
 	/**
 	 * Constructor.

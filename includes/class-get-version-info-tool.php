@@ -4,18 +4,18 @@
  */
 declare(strict_types=1);
 
-namespace MyMCPTools;
+namespace WPMCPBoilerplate;
 
 // include the base tool.
-require_once MY_PLUGIN_PATH . 'includes/class-base-tool.php';
+require_once WP_MCP_BOILERPLATE_PATH . 'includes/class-base-tool.php';
 
 // include the base tool.
-use MyMCPTools\BaseTool;
+use WPMCPBoilerplate\BaseTool;
 
 /**
  * Get Version Info Tool.
  */
-class GetVersionInfoTool extends BaseTool {
+class GetVersionInfoTool extends BaseTool { // phpcs:ignore
 
 	/**
 	 * Set the name of the tool.
@@ -23,7 +23,7 @@ class GetVersionInfoTool extends BaseTool {
 	 * @return string The name of the tool.
 	 */
 	protected function set_name(): string {
-		return 'mmt_get_version_info';
+		return 'wmb_get_version_info';
 	}
 
 	/**
