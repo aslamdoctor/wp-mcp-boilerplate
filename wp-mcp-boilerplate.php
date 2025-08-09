@@ -78,6 +78,8 @@ if ( ! class_exists( 'WPMCPBoilerplate' ) ) {
 		private function includes() {
 			// include all the tools.
 			include_once WP_MCP_BOILERPLATE_PATH . 'includes/class-get-version-info-tool.php';
+			include_once WP_MCP_BOILERPLATE_PATH . 'includes/class-create-mcp-tool.php';
+			include_once WP_MCP_BOILERPLATE_PATH . 'includes/class-get-comments-tool.php';
 		}
 
 		/**
@@ -129,6 +131,8 @@ if ( ! class_exists( 'WPMCPBoilerplate' ) ) {
 			load_plugin_textdomain( 'wp-mcp-boilerplate', false, dirname( WP_MCP_BOILERPLATE_BASENAME ) . '/languages' );
 
 			new GetVersionInfoTool();
+			new CreateMcpTool();
+			new GetCommentsTool();
 		}
 	}
 }
